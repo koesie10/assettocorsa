@@ -1,0 +1,20 @@
+#cloud-config
+runcmd:
+  - wget https://storage.googleapis.com/golang/go1.7.5.linux-amd64.tar.gz
+  - tar -zxf go1.7.5.linux-amd64.tar.gz -C /usr/local/ --nv
+  - echo 'export GOPATH=$HOME/Go' >> /etc/profile
+  - echo 'export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin' >> /etc/profile
+  - export GOPATH=/root/go
+  - export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+  - mkdir $GOPATH
+  - mkdir $GOPATH/bin
+  - curl https://glide.sh/get | sh
+  - go get -d github.com/koesie10/assettocorsa
+  - cd $GOPATH/src/github.com/koesie10/assettocorsa
+  - glide install
+  - GOOS=windows GOARCH=386 go build -o assettocorsa-win386.exe
+  - GOOS=windows GOARCH=amd64 go build -o assettocorsa-winx64.exe
+  - GOOS=linux GOARCH=amd64 go build -o assettocorsa-linux-amd64
+  - GOOS=linux GOARCH=386 go build -o assettocorsa-linux-386
+  - GOOS=linux GOARCH=arm go build -o assettocorsa-linux-arm
+  - GOOS=linux GOARCH=arm64 go build -o assettocorsa-linux-arm64
