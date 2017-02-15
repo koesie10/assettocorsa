@@ -1,0 +1,4 @@
+package: github.com/koesie10/assettocorsa
+import:
+- package: github.com/urfave/cli
+  version: ^1.19.1
