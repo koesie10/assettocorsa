@@ -1,9 +1,8 @@
 package main
 
 import (
-	"os"
-
 	"github.com/urfave/cli"
+	"os"
 )
 
 func main() {

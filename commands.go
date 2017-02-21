@@ -2,10 +2,9 @@ package main
 
 import (
 	"fmt"
-	"os"
-
 	"github.com/koesie10/assettocorsa/command"
 	"github.com/urfave/cli"
+	"os"
 )
 
 var GlobalFlags = []cli.Flag{}

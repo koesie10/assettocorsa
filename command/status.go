@@ -1,11 +1,11 @@
 package command
 
 import (
-	"github.com/urfave/cli"
-	"net/http"
-	"fmt"
-	"io/ioutil"
 	"encoding/json"
+	"fmt"
+	"github.com/urfave/cli"
+	"io/ioutil"
+	"net/http"
 	"text/tabwriter"
 )
 
@@ -37,7 +37,7 @@ func CmdStatus(c *cli.Context) error {
 	fmt.Fprintln(writer, "ID\tModel\tSkin\tDriver")
 
 	for i, v := range response.Cars {
-		fmt.Fprintf(writer, "%d\t%s\t%s\t%s\n", i, v.Model, v.Skin, v.DriverName)
+		fmt.Fprintf(writer, "%d\t%s\t%s\t%s\n", i + 1, v.Model, v.Skin, v.DriverName)
 	}
 
 	writer.Flush()
