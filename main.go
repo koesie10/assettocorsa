@@ -2,10 +2,13 @@ package main
 
 import (
 	"github.com/urfave/cli"
+	"math/rand"
 	"os"
+	"time"
 )
 
 func main() {
+	rand.Seed(time.Now().UTC().UnixNano())
 
 	app := cli.NewApp()
 	app.Name = Name

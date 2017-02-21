@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/urfave/cli"
 	"io/ioutil"
+	"math/rand"
 	"net/http"
 	"text/tabwriter"
 )
@@ -13,7 +14,7 @@ func CmdStatus(c *cli.Context) error {
 	host := c.String("host")
 	port := c.Uint("port")
 
-	resp, err := http.Get(fmt.Sprintf("http://%s:%d/JSON|42", host, port))
+	resp, err := http.Get(fmt.Sprintf("http://%s:%d/JSON|%d", host, port, rand.Int63()))
 	if err != nil {
 		return err
 	}
